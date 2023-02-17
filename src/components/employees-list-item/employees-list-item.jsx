@@ -1,23 +1,32 @@
+import classNames from 'classnames';
+
 import './employees-list-item.css';
 
-const EmployeesListItem = () => {
+const EmployeesListItem = ({ name, salary, increase }) => {
+  
+  // let classNames = 'list-group-item d-flex justify-content-between';
+  // if (increase) {
+  //   classNames += ' increase';
+  // } 
+  
   return (
-    <li className="list-group-item d-flex justify-content-between">
-      <span className="list-group-item-label">John Smith</span>
+    <li className={classNames('list-group-item d-flex justify-content-between', {increase: increase})}>
+    {/* <li className={classNames}> */}
+      <span className='list-group-item-label'>{name}</span>
       <input
-        type="text"
-        className="list-group-item-input"
-        defaultValue="1000$"
+        type='text'
+        className='list-group-item-input'
+        defaultValue={salary + '$'}
       />
-      <div className="d-flex justify-content-center align-items-center">
-        <button type="button" className="btn-cookie btn-sm ">
-          <i className="fas fa-cookie"></i>
+      <div className='d-flex justify-content-center align-items-center'>
+        <button type='button' className='btn-cookie btn-sm '>
+          <i className='fas fa-cookie'></i>
         </button>
 
-        <button type="button" className="btn-trash btn-sm ">
-          <i className="fas fa-trash"></i>
+        <button type='button' className='btn-trash btn-sm '>
+          <i className='fas fa-trash'></i>
         </button>
-        <i className="fas fa-star"></i>
+        <i className='fas fa-star'></i>
       </div>
     </li>
   );
