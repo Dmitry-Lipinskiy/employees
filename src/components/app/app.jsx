@@ -1,34 +1,23 @@
-import AppInfo from '../app-info/app-info';
-import SearchPanel from '../search-panel/search-panel';
-import AppFilter from '../app-filter/app-filter';
-import EmployeesList from '../employees-list/employees-list';
-import EmployeesAddForm from '../employees-add-form/employees-add-form';
+import { employeesData } from '../../data/employees-data';
+
+import { AppFilter } from '../app-filter';
+import { AppInfo } from '../app-info';
+import { EmployeesAddForm } from '../employees-add-form';
+import { EmployeesList } from '../employees-list';
+import { SearchPanel } from '../search-panel';
 
 import './app.css';
 
-function App() {
+export const App = () => (
+  <div className='app'>
+    <AppInfo />
 
-  const data = [
-    { name: 'John C.', salary: 800, increase: false, id: 1 },
-    { name: 'Alex M.', salary: 3000, increase: true, id: 2 },
-    { name: 'Carl W.', salary: 5000, increase: false, id: 3 },
-    { name: 'Nick B.', salary: 700, increase: false, id: 4 },
-    { name: 'Mike S.', salary: 1500, increase: true, id: 5 }
-  ];
-
-  return (
-    <div className='app'>
-      <AppInfo />
-
-      <div className='search-panel'>
-        <SearchPanel />
-        <AppFilter />
-      </div>
-
-      <EmployeesList data={data} />
-      <EmployeesAddForm />
+    <div className='search-panel'>
+      <SearchPanel />
+      <AppFilter />
     </div>
-  );
-}
 
-export default App;
+    <EmployeesList employeesData={employeesData} />
+    <EmployeesAddForm />
+  </div>
+);
